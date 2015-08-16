@@ -1,4 +1,5 @@
 package com.deltaora.tiebreak;
+
 import android.app.Activity;
 import android.os.Bundle;
 
@@ -28,7 +29,6 @@ public class MainActivity extends Activity {
      */
     BluetoothAdapter adapter = null;
     BTClient _bt;
-    ZephyrProtocol _protocol;
     ConnectionListener _NConnListener;
     private final int HEART_RATE = 0x100;
     private final int INSTANT_SPEED = 0x101;
@@ -55,8 +55,6 @@ public class MainActivity extends Activity {
         ehb.addTextChangedListener(new TextWatcher() {
 
             public void afterTextChanged(Editable s) {
-
-
             }
 
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -68,7 +66,6 @@ public class MainActivity extends Activity {
                 String slot = elng.getText().toString();
                 String spid = epid.getText().toString();
 
-                String hb = ehb.getText().toString();
                 String url = "http://192.168.100.121:8084/HeartMonitoringSystem/MobileHandler?lat=" + slat +
                         "&long=" + slot +
                         "&pr=" + ehb.getText().toString().trim() +
@@ -134,8 +131,7 @@ public class MainActivity extends Activity {
                     if (pairedDevices.size() > 0) {
                         for (BluetoothDevice device : pairedDevices) {
                             if (device.getName().startsWith("HXM")) {
-                                BluetoothDevice btDevice = device;
-                                BhMacID = btDevice.getAddress();
+                                BhMacID = device.getAddress();
                                 break;
 
                             }
@@ -176,7 +172,6 @@ public class MainActivity extends Activity {
                     } else {
                         TextView tv = (TextView) findViewById(R.id.labelStatusMsg);
                         String ErrorText = "Unable to Connect !";
-                        int iConnect = 0;
                         tv.setText(ErrorText);
 
                     }
@@ -190,11 +185,9 @@ public class MainActivity extends Activity {
                 @Override
                 /*Functionality to act if the button DISCONNECT is touched*/
                 public void onClick(View v) {
-                    // TODO Auto-generated method stub
-					/*Reset the global variables*/
+                    /*Reset the global variables*/
                     TextView tv = (TextView) findViewById(R.id.labelStatusMsg);
                     String ErrorText = "Disconnected from HxM!";
-                    int iConnect = 0;
                     tv.setText(ErrorText);
 
 					/*This disconnects listener from acting on received messages*/
@@ -230,21 +223,9 @@ public class MainActivity extends Activity {
                 m = device.getClass().getMethod("setPin", new Class[]{pin.getClass()});
                 Object result = m.invoke(device, pin);
                 Log.d("BTTest", result.toString());
-            } catch (SecurityException e1) {
-                // TODO Auto-generated catch block
+            } catch (SecurityException | NoSuchMethodException | IllegalArgumentException
+                    | IllegalAccessException | InvocationTargetException e1) {
                 e1.printStackTrace();
-            } catch (NoSuchMethodException e1) {
-                // TODO Auto-generated catch block
-                e1.printStackTrace();
-            } catch (IllegalArgumentException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            } catch (InvocationTargetException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
             }
         }
     }
