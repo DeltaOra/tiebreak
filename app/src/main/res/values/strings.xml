@@ -2,7 +2,6 @@
     <string name="app_name">Tiebreak</string>
     <string name="hello">Heart Monitoring System!</string>
     <string name="labelHeartRate">000</string>
-    <string name="labelStatusMsg"></string>
     <string name="sConnect">Connect</string>
     <string name="sDisconnect">Disconnect</string>
     <string name="sPID">PID</string>
@@ -12,4 +11,5 @@
     <string name="sInstantSpeed">Instant Speed</string>
     <string name="sStatus">Status</string>
     <string name="sStatusMessage">Status Message Box</string>
+    <string name="action_settings">Settings</string>
 </resources>

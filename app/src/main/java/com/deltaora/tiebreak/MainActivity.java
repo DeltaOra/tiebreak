@@ -1,6 +1,5 @@
 package com.deltaora.tiebreak;
 
-import android.app.Activity;
 import android.os.Bundle;
 
 import java.lang.reflect.InvocationTargetException;
@@ -14,19 +13,19 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.*;
 
 import zephyr.android.HxMBT.*;
 
-public class MainActivity extends Activity {
-    /**
-     * Called when the activity is first created.
-     */
+public class MainActivity extends AppCompatActivity {
     BluetoothAdapter adapter = null;
     BTClient _bt;
     ConnectionListener _NConnListener;
@@ -45,12 +44,13 @@ public class MainActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.activity_main);
+        android.support.v7.widget.Toolbar toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar); // Attaching the layout to the toolbar object
+        setSupportActionBar(toolbar);
         elat = (EditText) findViewById(R.id.editLatitude);
         elng = (EditText) findViewById(R.id.editLongitude);
         epid = (EditText) findViewById(R.id.editPID);
-        ehb = (EditText) findViewById(R.id.txtHb);
-
+        ehb = (EditText) findViewById(R.id.editHeartRate);
 
         ehb.addTextChangedListener(new TextWatcher() {
 
@@ -98,7 +98,7 @@ public class MainActivity extends Activity {
         this.getApplicationContext().registerReceiver(new BTBondReceiver(), filter2);
 
         //Obtaining the handle to act on the CONNECT button
-        TextView tv = (TextView) findViewById(R.id.labelStatusMsg);
+        TextView tv = (TextView) findViewById(R.id.textStatus);
         String ErrorText = "Not Connected to HxM ! !";
         tv.setText(ErrorText);
 
@@ -147,10 +147,10 @@ public class MainActivity extends Activity {
                     _NConnListener = new ConnectionListener(Newhandler, Newhandler);
                     _bt.addConnectedEventListener(_NConnListener);
 
-                    TextView tv1 = (EditText) findViewById(R.id.txtHb);
+                    TextView tv1 = (EditText) findViewById(R.id.editHeartRate);
                     tv1.setText("000");
 
-                    tv1 = (EditText) findViewById(R.id.labelInstantSpeed);
+                    tv1 = (EditText) findViewById(R.id.editInstantSpeed);
                     tv1.setText("0.0");
 
                     //tv1 = 	(EditText)findViewById(R.id.labelSkinTemp);
@@ -163,14 +163,14 @@ public class MainActivity extends Activity {
                     //tv1.setText("0.0");
                     if (_bt.IsConnected()) {
                         _bt.start();
-                        TextView tv = (TextView) findViewById(R.id.labelStatusMsg);
+                        TextView tv = (TextView) findViewById(R.id.textStatus);
                         String ErrorText = "Connected to HxM " + DeviceName;
                         tv.setText(ErrorText);
                         iConnect = 1;
                         //Reset all the values to 0s
 
                     } else {
-                        TextView tv = (TextView) findViewById(R.id.labelStatusMsg);
+                        TextView tv = (TextView) findViewById(R.id.textStatus);
                         String ErrorText = "Unable to Connect !";
                         tv.setText(ErrorText);
 
@@ -186,7 +186,7 @@ public class MainActivity extends Activity {
                 /*Functionality to act if the button DISCONNECT is touched*/
                 public void onClick(View v) {
                     /*Reset the global variables*/
-                    TextView tv = (TextView) findViewById(R.id.labelStatusMsg);
+                    TextView tv = (TextView) findViewById(R.id.textStatus);
                     String ErrorText = "Disconnected from HxM!";
                     tv.setText(ErrorText);
 
@@ -237,7 +237,7 @@ public class MainActivity extends Activity {
             switch (msg.what) {
                 case HEART_RATE:
                     final String HeartRatetext = msg.getData().getString("HeartRate");
-                    tv = (EditText) findViewById(R.id.txtHb);
+                    tv = (EditText) findViewById(R.id.editHeartRate);
                     System.out.println("Heart Rate Info is " + HeartRatetext);
 
 
@@ -252,7 +252,7 @@ public class MainActivity extends Activity {
 
                 case INSTANT_SPEED:
                     String InstantSpeedtext = msg.getData().getString("InstantSpeed");
-                    tv = (EditText) findViewById(R.id.labelInstantSpeed);
+                    tv = (EditText) findViewById(R.id.editInstantSpeed);
                     if (tv != null)
                         tv.setText(InstantSpeedtext);
 
@@ -263,6 +263,27 @@ public class MainActivity extends Activity {
 
     };
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 }
 
 
