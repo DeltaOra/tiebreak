@@ -1,135 +1,232 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
     <TextView
-        android:id="@+id/Welcometext"
+        android:id="@+id/WelcomeText"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/text_height"
+        android:gravity="center"
         android:text="@string/hello"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textColor="@color/primaryTextColor" />
 
-    <Button android:text="Connect"
+    <Button
+        android:text="@string/sConnect"
         android:id="@+id/ButtonConnect"
-        android:layout_width="wrap_content"
-        android:layout_below="@+id/Welcometext"
-        android:layout_height="wrap_content"></Button>
+        android:layout_below="@+id/WelcomeText"
+        android:layout_marginTop="@dimen/margin_top"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="@dimen/margin_bottom"
+        android:layout_width="150dp"
+        android:layout_height="@dimen/text_height"
+        android:background="@color/accentColor"
+        android:textColor="@color/colorWhite"
+        android:textSize="16sp" />
 
-    <Button android:text="Disconnect"
+    <Button
+        android:text="@string/sDisconnect"
         android:id="@+id/ButtonDisconnect"
-        android:layout_toRightOf="@id/ButtonConnect"
-        android:layout_alignTop="@id/ButtonConnect"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></Button>
+        android:layout_below="@id/WelcomeText"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/margin_top"
+        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="@dimen/margin_bottom"
+        android:layout_width="150dp"
+        android:layout_height="@dimen/text_height"
+        android:background="@color/accentColor"
+        android:textColor="@color/colorWhite"
+        android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/StatusTextBox"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/labelStatusMsg"
-        android:layout_alignParentLeft="true"
-        android:text="Status Message"
-        android:textSize="20sp" />
-
-    <TextView
-        android:id="@+id/HRTextBox"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/txtHb"
-        android:layout_alignParentLeft="true"
-        android:text="Heart Rate"
-        android:textSize="20sp" />
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:id="@+id/textPID"
         android:layout_below="@+id/ButtonConnect"
-        android:text="PID"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:text="@string/sPID"
+        android:layout_width="120dp"
+        android:layout_height="@dimen/text_height"
+        android:layout_marginTop="@dimen/margin_top"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="@dimen/margin_bottom"
+        android:layout_marginRight="4dp"
+        android:layout_marginEnd="4dp"
+        android:gravity="center"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="18sp" />
 
     <EditText
-        android:id="@+id/txtPid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView1"
-        android:ems="10" >
-
-        <requestFocus />
-    </EditText>
+        android:id="@+id/editPID"
+        android:layout_below="@+id/ButtonConnect"
+        android:layout_toRightOf="@+id/textPID"
+        android:layout_toEndOf="@+id/textPID"
+        android:layout_marginTop="@dimen/margin_top"
+        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="@dimen/margin_bottom"
+        android:layout_marginLeft="4dp"
+        android:layout_marginStart="4dp"
+        android:layout_height="@dimen/text_height"
+        android:layout_width="match_parent" />
 
     <TextView
-        android:id="@+id/InstantSpeed"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/labelInstantSpeed"
+        android:id="@+id/textLatitude"
+        android:layout_below="@+id/editPID"
+        android:text="@string/sLatitude"
+        android:layout_width="120dp"
+        android:layout_height="@dimen/text_height"
+        android:layout_marginTop="@dimen/margin_top"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="@dimen/margin_bottom"
+        android:layout_marginRight="4dp"
+        android:layout_marginEnd="4dp"
+        android:gravity="center"
         android:layout_alignParentLeft="true"
-        android:text="Instant Speed"
-        android:textSize="20sp" />
+        android:layout_alignParentStart="true"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/editLatitude"
+        android:layout_below="@+id/textPID"
+        android:layout_toRightOf="@+id/textLatitude"
+        android:layout_toEndOf="@+id/textLatitude"
+        android:layout_marginTop="@dimen/margin_top"
+        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="@dimen/margin_bottom"
+        android:layout_marginLeft="4dp"
+        android:layout_marginStart="4dp"
+        android:layout_height="@dimen/text_height"
+        android:layout_width="match_parent" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/textLongitude"
+        android:layout_below="@+id/textLatitude"
+        android:text="@string/sLongitude"
+        android:layout_width="120dp"
+        android:layout_height="@dimen/text_height"
+        android:layout_marginTop="@dimen/margin_top"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="@dimen/margin_bottom"
+        android:layout_marginRight="4dp"
+        android:layout_marginEnd="4dp"
+        android:gravity="center"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/txtPid"
-        android:text="Latitude"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:layout_alignParentStart="true"
+        android:textSize="18sp" />
 
     <EditText
-        android:id="@+id/txtLat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView2"
-        android:ems="10" />
+        android:id="@+id/editLongitude"
+        android:layout_below="@+id/textLatitude"
+        android:layout_toRightOf="@+id/textLongitude"
+        android:layout_toEndOf="@+id/textLongitude"
+        android:layout_marginTop="@dimen/margin_top"
+        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="@dimen/margin_bottom"
+        android:layout_marginLeft="4dp"
+        android:layout_marginStart="4dp"
+        android:layout_height="@dimen/text_height"
+        android:layout_width="match_parent" />
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/textHeartRate"
+        android:layout_below="@+id/textLongitude"
+        android:text="@string/sHeartRate"
+        android:layout_width="120dp"
+        android:layout_height="@dimen/text_height"
+        android:layout_marginTop="@dimen/margin_top"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="@dimen/margin_bottom"
+        android:layout_marginRight="4dp"
+        android:layout_marginEnd="4dp"
+        android:gravity="center"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/txtLat"
-        android:text="Longitude"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:layout_alignParentStart="true"
+        android:textSize="18sp" />
 
     <EditText
-        android:id="@+id/labelStatusMsg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:id="@+id/editHeartRate"
+        android:layout_below="@+id/textLongitude"
+        android:layout_toRightOf="@+id/textHeartRate"
+        android:layout_toEndOf="@+id/textHeartRate"
+        android:layout_marginTop="@dimen/margin_top"
+        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="@dimen/margin_bottom"
+        android:layout_marginLeft="4dp"
+        android:layout_marginStart="4dp"
+        android:layout_height="@dimen/text_height"
+        android:layout_width="match_parent" />
+
+    <TextView
+        android:id="@+id/textInstantSpeed"
+        android:layout_below="@+id/textHeartRate"
+        android:text="@string/sInstantSpeed"
+        android:layout_width="120dp"
+        android:layout_height="@dimen/text_height"
+        android:layout_marginTop="@dimen/margin_top"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="@dimen/margin_bottom"
+        android:layout_marginRight="4dp"
+        android:layout_marginEnd="4dp"
+        android:gravity="center"
         android:layout_alignParentLeft="true"
-        android:ems="10"
-        android:text="Status Message Box" />
+        android:layout_alignParentStart="true"
+        android:textSize="18sp" />
 
     <EditText
-        android:id="@+id/labelInstantSpeed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/StatusTextBox"
+        android:id="@+id/editInstantSpeed"
+        android:layout_below="@+id/textHeartRate"
+        android:layout_toRightOf="@+id/textInstantSpeed"
+        android:layout_toEndOf="@+id/textInstantSpeed"
+        android:layout_marginTop="@dimen/margin_top"
+        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="@dimen/margin_bottom"
+        android:layout_marginLeft="4dp"
+        android:layout_marginStart="4dp"
+        android:layout_height="@dimen/text_height"
+        android:layout_width="match_parent" />
+
+    <TextView
+        android:id="@+id/textStatus"
+        android:layout_below="@+id/textInstantSpeed"
+        android:text="@string/sStatus"
+        android:layout_width="120dp"
+        android:layout_height="@dimen/text_height"
+        android:layout_marginTop="@dimen/margin_top"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="@dimen/margin_bottom"
+        android:layout_marginRight="4dp"
+        android:layout_marginEnd="4dp"
+        android:gravity="center"
         android:layout_alignParentLeft="true"
-        android:ems="10"
-        android:text="000" />
+        android:layout_alignParentStart="true"
+        android:textSize="18sp" />
 
     <EditText
-        android:id="@+id/txtLong"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView3"
-        android:ems="10" />
-
-    <EditText
-        android:id="@+id/txtHb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/InstantSpeed"
-        android:layout_alignParentLeft="true"
-        android:ems="10"
-        android:text="000" />
-
+        android:id="@+id/editStatus"
+        android:layout_below="@+id/textInstantSpeed"
+        android:layout_toRightOf="@+id/textStatus"
+        android:layout_toEndOf="@+id/textStatus"
+        android:layout_marginTop="@dimen/margin_top"
+        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="@dimen/margin_bottom"
+        android:layout_marginLeft="4dp"
+        android:layout_marginStart="4dp"
+        android:layout_height="@dimen/text_height"
+        android:layout_width="match_parent"
+        android:text="@string/sStatusMessage"
+        android:inputType="text" />
 </RelativeLayout>

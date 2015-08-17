@@ -46,9 +46,9 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        elat = (EditText) findViewById(R.id.txtLat);
-        elng = (EditText) findViewById(R.id.txtLong);
-        epid = (EditText) findViewById(R.id.txtPid);
+        elat = (EditText) findViewById(R.id.editLatitude);
+        elng = (EditText) findViewById(R.id.editLongitude);
+        epid = (EditText) findViewById(R.id.editPID);
         ehb = (EditText) findViewById(R.id.txtHb);
 
 
