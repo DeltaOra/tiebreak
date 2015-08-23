@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         this.getApplicationContext().registerReceiver(new BTBondReceiver(), filter2);
 
         //Obtaining the handle to act on the CONNECT button
-        TextView tv = (TextView) findViewById(R.id.textStatus);
+        TextView tv = (TextView) findViewById(R.id.editStatus);
         String ErrorText = "Not Connected to HxM ! !";
         tv.setText(ErrorText);
 
@@ -163,14 +163,14 @@ public class MainActivity extends AppCompatActivity {
                     //tv1.setText("0.0");
                     if (_bt.IsConnected()) {
                         _bt.start();
-                        TextView tv = (TextView) findViewById(R.id.textStatus);
+                        TextView tv = (TextView) findViewById(R.id.editStatus);
                         String ErrorText = "Connected to HxM " + DeviceName;
                         tv.setText(ErrorText);
                         iConnect = 1;
                         //Reset all the values to 0s
 
                     } else {
-                        TextView tv = (TextView) findViewById(R.id.textStatus);
+                        TextView tv = (TextView) findViewById(R.id.editStatus);
                         String ErrorText = "Unable to Connect !";
                         tv.setText(ErrorText);
 
@@ -186,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
                 /*Functionality to act if the button DISCONNECT is touched*/
                 public void onClick(View v) {
                     /*Reset the global variables*/
-                    TextView tv = (TextView) findViewById(R.id.textStatus);
+                    TextView tv = (TextView) findViewById(R.id.editStatus);
                     String ErrorText = "Disconnected from HxM!";
                     tv.setText(ErrorText);
 

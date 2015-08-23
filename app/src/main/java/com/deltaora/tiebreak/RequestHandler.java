@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 public class RequestHandler {
     public String getTargetRate(String strURL, MainActivity sf) {
-        StringBuffer b = new StringBuffer();
+        StringBuilder b = new StringBuilder();
         InputStream is;
         URL url;
         HttpURLConnection con;
@@ -21,14 +21,13 @@ public class RequestHandler {
         try {
             url = new URL(strURL);
             con = (HttpURLConnection) url.openConnection();
-            con.setReadTimeout(10000 /* milliseconds */);
-            con.setConnectTimeout(25000 /* milliseconds */);
+            con.setReadTimeout(10000);
+            con.setConnectTimeout(25000);
             con.setRequestMethod("GET");
             con.setDoInput(true);
             // this.page=url.getPath();
             site = url.getQuery();
-            // con.addRequestProperty("Referer", "http://blog.dahanne.net");
-            // Start the query
+
             con.connect();
             is = con.getInputStream();
 
