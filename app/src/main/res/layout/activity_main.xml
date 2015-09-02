@@ -15,41 +15,12 @@
         android:gravity="center"
         android:text="@string/hello"
         android:textSize="20sp"
-        android:textColor="@color/primaryTextColor" />
+        android:textColor="@color/colorPrimaryText" />
 
-    <Button
-        android:text="@string/sConnect"
-        android:id="@+id/ButtonConnect"
-        android:layout_below="@+id/WelcomeText"
-        android:layout_marginTop="@dimen/margin_top"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="@dimen/margin_bottom"
-        android:layout_width="150dp"
-        android:layout_height="@dimen/text_height"
-        android:background="@color/accentColor"
-        android:textColor="@color/colorWhite"
-        android:textSize="16sp" />
-
-    <Button
-        android:text="@string/sDisconnect"
-        android:id="@+id/ButtonDisconnect"
-        android:layout_below="@id/WelcomeText"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="@dimen/margin_top"
-        android:layout_marginRight="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="@dimen/margin_bottom"
-        android:layout_width="150dp"
-        android:layout_height="@dimen/text_height"
-        android:background="@color/accentColor"
-        android:textColor="@color/colorWhite"
-        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/textPID"
-        android:layout_below="@+id/ButtonConnect"
+        android:layout_below="@+id/WelcomeText"
         android:text="@string/sPID"
         android:layout_width="120dp"
         android:layout_height="@dimen/text_height"
@@ -59,14 +30,14 @@
         android:layout_marginBottom="@dimen/margin_bottom"
         android:layout_marginRight="4dp"
         android:layout_marginEnd="4dp"
-        android:gravity="center"
+        android:gravity="center_vertical"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:textSize="18sp" />
 
     <EditText
         android:id="@+id/editPID"
-        android:layout_below="@+id/ButtonConnect"
+        android:layout_below="@+id/WelcomeText"
         android:layout_toRightOf="@+id/textPID"
         android:layout_toEndOf="@+id/textPID"
         android:layout_marginTop="@dimen/margin_top"
@@ -90,7 +61,7 @@
         android:layout_marginBottom="@dimen/margin_bottom"
         android:layout_marginRight="4dp"
         android:layout_marginEnd="4dp"
-        android:gravity="center"
+        android:gravity="center_vertical"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:textSize="18sp" />
@@ -121,7 +92,7 @@
         android:layout_marginBottom="@dimen/margin_bottom"
         android:layout_marginRight="4dp"
         android:layout_marginEnd="4dp"
-        android:gravity="center"
+        android:gravity="center_vertical"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:textSize="18sp" />
@@ -152,7 +123,7 @@
         android:layout_marginBottom="@dimen/margin_bottom"
         android:layout_marginRight="4dp"
         android:layout_marginEnd="4dp"
-        android:gravity="center"
+        android:gravity="center_vertical"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:textSize="18sp" />
@@ -183,7 +154,7 @@
         android:layout_marginBottom="@dimen/margin_bottom"
         android:layout_marginRight="4dp"
         android:layout_marginEnd="4dp"
-        android:gravity="center"
+        android:gravity="center_vertical"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:textSize="18sp" />
@@ -214,7 +185,7 @@
         android:layout_marginBottom="@dimen/margin_bottom"
         android:layout_marginRight="4dp"
         android:layout_marginEnd="4dp"
-        android:gravity="center"
+        android:gravity="center_vertical"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:textSize="18sp" />
@@ -234,4 +205,34 @@
         android:layout_width="match_parent"
         android:text="@string/sStatusMessage"
         android:inputType="text" />
+
+    <Button
+        android:text="@string/sConnect"
+        android:id="@+id/ButtonConnect"
+        android:layout_below="@+id/textStatus"
+        android:layout_marginTop="@dimen/margin_top"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="@dimen/margin_bottom"
+        android:layout_width="150dp"
+        android:layout_height="@dimen/text_height"
+        android:background="@color/colorAccent"
+        android:textColor="@color/colorWhite"
+        android:textSize="16sp" />
+
+    <Button
+        android:text="@string/sDisconnect"
+        android:id="@+id/ButtonDisconnect"
+        android:layout_below="@id/textStatus"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/margin_top"
+        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="@dimen/margin_bottom"
+        android:layout_width="150dp"
+        android:layout_height="@dimen/text_height"
+        android:background="@color/colorAccent"
+        android:textColor="@color/colorWhite"
+        android:textSize="16sp" />
 </RelativeLayout>
